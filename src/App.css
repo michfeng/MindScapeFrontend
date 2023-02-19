@@ -1,9 +1,18 @@
 
+@font-face {
+  font-family: Roboto;
+  src: url('./assets/Roboto/Roboto-Regular.ttf');
+  font-weight: 400;
+}
+
 .App {
   text-align: center;
   background: linear-gradient(#CAE8DD, #50AD8C) !important;
 }
 
+body {
+  font-family: 'Roboto' !important;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -29,6 +38,7 @@
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {
@@ -57,10 +67,11 @@ button{
   padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #CAE8DD;
+  opacity: 0.6;
 }
 
 li {
@@ -87,6 +98,7 @@ input {
   float: none;
   height: 80vh;
   width: 70vw;
+  box-shadow: 2px 2px 8px gray;
 }
 
 .upload {
@@ -102,10 +114,22 @@ input {
   float: none;
   position: relative;
   height: 100%;
+  box-shadow: 2px 2px 8px gray;
 }
+
+.class {
+  height: 30%;
+  margin-bottom: 5%;
+}
+
+.video {
+  height: 65%;
+}
+
 
 .uploadMedia {
   height: 75% !important;
+  
 }
 
 .row {
@@ -129,9 +153,52 @@ input {
 }
 
 .vidLink {
-  margin-top: 50%;
+  margin-top: 25px;
   border-color: #7C7C7C;
+  height: 25px;
   border-radius: 40px;
-  width: 100%;
+  width: 75%;
   text-align: center;
+}
+
+.upload_file {
+  height: 20%;
+}
+
+.startCard {
+  background-color: white;
+  width: 35vw;
+  height: 70vh;
+  padding: 15px;
+  box-shadow: 2px 2px 8px gray;
+}
+
+.title {
+  margin-top: 20px !important;
+  font-size: 70px !important;
+}
+
+p {
+  color: #30A179;
+}
+
+.start {
+  height: 100vh;
+  align-items: center !important;
+  justify-content: center !important;
+  display: flex;
+}
+
+.continue {
+  margin-top: 40px;
+  width: 60%;
+  height: 50%;
+  border-radius: 50%;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.continue:hover {
+  background-color: #30A179;
+  opacity: 0.6;
 }

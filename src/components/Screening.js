@@ -1,21 +1,28 @@
 import React, { Component }  from 'react';
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 class Screening extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
-        this.answers = [-1,-1,-1,-1,-1]
+        this.answers = [-1,-1,-1,-1,-1];
+
+        this.userExists = (this.props.id !== null);
 
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
         this.handleChange4 = this.handleChange4.bind(this);
         this.handleChange5 = this.handleChange5.bind(this);
+        this.submitForm = this.submitForm.bind(this)
     }
 
-    submitForm = () => {
-        let baseURL = "";
+
+    submitForm = (e) => {
+        let baseURL = "http://4f39-68-65-175-64.ngrok.io/";
         console.log("Pressed submit form " + this.handleChange1);
         let tracker = [0,0,0];
 
@@ -38,7 +45,7 @@ class Screening extends Component {
         console.log("This is a "+ mapDict[maxInd] + " type of learner");
 
         // Log value into backend
-        fetch(`${baseURL}/sessions`, {
+        fetch(`${baseURL}sessions/`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -46,16 +53,18 @@ class Screening extends Component {
             },
             body: JSON.stringify({ "type": mapDict[maxInd]})
         })
-        .then(response => response.json())
-        .then(response => console.log(JSON.stringify(response)))
-    }
+        .then( response => response.json()) 
+        .then((response) => {
+            let json = JSON.parse(JSON.stringify(response));
+            let id = json["data"]["session_id"];
+            localStorage.setItem("session_id", id);
+        }
+        );
 
-    getAnswers() {
-        return this.answers;
+        this.props.navHook('/upload')
     }
 
     handleChange1(changeEvent) {
-        console.log(this.getAnswers());
         this.answers[0] = changeEvent.target.value;
     }
 
@@ -78,7 +87,7 @@ class Screening extends Component {
 
     render() {
         return (
-            <div className="screening">
+            <div className="screening" id='screening'>
             <div className="screeningCard">
                 <header>
                     <h1>Help us learn more about you!</h1>
@@ -120,7 +129,11 @@ class Screening extends Component {
         </div>
         );
     }
-
 }
 
-export default Screening;
+function params(Component) {
+    return props => <Component navHook={useNavigate()} />;
+}
+
+export default params(Screening);
+//export default Screening;
