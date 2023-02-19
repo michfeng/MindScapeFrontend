@@ -178,6 +178,17 @@ input {
   font-size: 70px !important;
 }
 
+.social {
+  height: 100vh;
+  align-items: center !important;
+  justify-content: center !important;
+  display: flex;
+}
+
+.chat {
+  width: 70% !important;
+}
+
 p {
   color: #30A179;
 }

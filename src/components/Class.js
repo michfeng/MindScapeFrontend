@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
 
 export const Class = (props) => {
     const [user, setUser] = useState([]);
@@ -48,6 +48,25 @@ export const Class = (props) => {
        fetchData()
     },[]);
 
+    const goVisual  = () => {
+        console.log(classInf);
+        /*let navigate = useNavigate(); 
+            let path = `/visual`
+            navigate({pathname: path, image: classInf.mind_map});*/
+    }
+    
+
+    const goAudio  = () => {
+        let navigate = useNavigate(); 
+            let path = `/audio`
+            navigate(path);
+    }
+
+    const goSocial  = () => {
+        let navigate = useNavigate(); 
+            let path = `/social`
+            navigate(path);
+    }
 
     
 
@@ -61,13 +80,13 @@ export const Class = (props) => {
                 <div className="rowHolder">
                     <div className="row">
                         <div className="col">
-                            <button className={`${(user.learning_pref === "VIS") ? "greenLearn" : "greyLearn"}`}>Visual</button>
+                            <button className={`${(user.learning_pref === "VIS") ? "greenLearn" : "greyLearn"}`} onClick={goVisual}>Visual</button>
                         </div>
                         <div className="col">
-                            <button className={`${(user.learning_pref === "AUD") ? "greenLearn" : "greyLearn"}`}>Auditory</button>
+                            <button className={`${(user.learning_pref === "AUD") ? "greenLearn" : "greyLearn"}`} onClick={goAudio}>Auditory</button>
                         </div>
                         <div className="col">
-                            <button className={`${(user.learning_pref === "SOC") ? "greenLearn" : "greyLearn"}`}>Social</button>
+                            <button className={`${(user.learning_pref === "SOC") ? "greenLearn" : "greyLearn"}`} onClick={goSocial}>Social</button>
                         </div>
                     </div>
                 </div>

@@ -8,7 +8,9 @@ import React, { Component }  from 'react';
 import Upload from './components/Upload';
 import {Start }from './components/Start';
 import {Class }from './components/Class';
-import {
+import {Map} from './components/Map';
+import {Social} from './components/Social';
+import{
   BrowserRouter as Router,
   Routes,
   Route, useNavigation
@@ -22,19 +24,25 @@ function App() {
   console.log(userExists)
 
   return (
+    <div className='App'>
+      <Social/>
+    </div>
+  );
+
+  /*return (
       <div className='App'>        
       <Router>
-        <Routes>
+        <Routes>          
+          <Route path="/social" element={<Map id={id}/>}/>
           <Route path="/" element={<Start userExists={userExists}/>}/>
-          (
-            userExists ? <Route path="/screening" element={<Screening id={id}/>}/> : 
+          <Route path="/screening" element={<Screening id={id}/>}/> 
           <Route path="/upload" element={<Upload id={id}/>}/>
-          )
           <Route path="/class/:classId" element={<Class id={id}/>}/>
+          <Route path="/visual" element={<Map id={id}/>}/>
         </Routes>
       </Router>
       </div>
-  );
+  );*/
 }
 
 export default App;
