@@ -68,11 +68,14 @@ export const Class = (props) => {
             navigate(path);
     }
 
-    
+    const genQuiz = () => {
+
+    }
 
     return (
         <div className="screening" id="class/:classId">
             <div className="screeningCard">
+                <div className="buttonHolder"><button className="quizButton" onClick={genQuiz}>Generate Quiz</button></div>
                 <h1>{classInf.name}</h1>
                 <h4 className="classDesc"> Based on our survey, you are a <span className="highlight">{typeDict[user.learning_pref]}</span> learner.</h4>
                 <h4 className="classDesc"> Click on the <span className="highlight">green button</span> for our recommended learing experience.</h4>

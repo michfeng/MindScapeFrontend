@@ -185,8 +185,21 @@ input {
   display: flex;
 }
 
-.chat {
-  width: 70% !important;
+.react-chatbot-kit-chat-container {
+  width: 70vw !important;
+}
+
+.react-chatbot-kit-chat-bot-message {
+  width: fit-content;
+  margin: 0 !important;
+}
+
+.react-chatbot-kit-chat-bot-message-container {
+  align-content: flex-start;
+}
+
+.react-chatbot-kit-chat-input {
+  font-size: larger;
 }
 
 p {
@@ -249,4 +262,14 @@ p {
 
 .highlight {
   color: #30A179;
+}
+
+.quizButton {
+  margin-top: 2px !important;
+  margin-right: 2px !important;
+  float: right;
+}
+
+.buttonHolder {
+  align-items: flex-end;
 }
