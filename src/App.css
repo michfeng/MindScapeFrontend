@@ -132,11 +132,11 @@ input {
   
 }
 
-.row {
+.upload .row {
   width: 70vw;
 }
 
-.col {
+.upload .col {
   height: 75vh;
 }
 
@@ -198,7 +198,44 @@ p {
   transition: 0.3s;
 }
 
+.row {
+  padding: 0;
+  width: 100% ;
+}
+
+.col {
+  height: 100%;
+}
+
 .continue:hover {
   background-color: #30A179;
   opacity: 0.6;
+}
+
+.greenLearn {
+  background-color: #30A179;
+  color: white;
+  width: 100%;
+  margin-top: 40%;
+  font-size: x-large;
+  height: 11em;
+  border-radius: 50%;
+}
+
+.greyLearn {
+  background-color: #7C7C7C;
+  color: white;
+  margin-top: 40%;
+  width: 100%;
+  height: 11em;
+  font-size: x-large;
+  border-radius: 50%;
+}
+
+.classDesc {
+  color: gray;
+}
+
+.highlight {
+  color: #30A179;
 }

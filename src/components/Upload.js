@@ -39,8 +39,8 @@ class Upload extends Component {
     render () {
         return (
             <form className="upload" enctype="multipart/form-data" id="/upload" action={"http://4f39-68-65-175-64.ngrok.io/classes/?session_id="+this.props.id} method="POST">
-                <div className="row">
-                    <div className="col">
+                <div className="row"> 
+                    <div className="col up">
                         <div className="class">
                             <div className="uploadCard">
                                 <h1>What class is this for?</h1>
@@ -54,7 +54,7 @@ class Upload extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col">
+                    <div className="col up">
                         <div className="uploadMedia">
                             <div className="uploadCard">
                                 <h1>Upload a file</h1>
